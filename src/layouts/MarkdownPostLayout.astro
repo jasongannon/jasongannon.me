@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
-
+import { Image } from "astro:assets";
 const { frontmatter } = Astro.props;
 ---
 
@@ -11,7 +11,7 @@ const { frontmatter } = Astro.props;
 
   <p>Written by: <a href="/about/">{frontmatter.author}</a></p>
 
-  <img src={frontmatter.image.src} width="300" alt={frontmatter.image.alt} />
+  <Image src={frontmatter.cover} width={1028} alt={frontmatter.coverAlt} />
 
   <div class="flex flex-wrap ">
      {

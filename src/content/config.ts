@@ -3,15 +3,15 @@ import { z, defineCollection } from "astro:content";
 // Define a `type` and `schema` for each collection
 const postsCollection = defineCollection({
     type: 'content',
-    schema: z.object({
+    schema: ({ image }) => z.object({
       title: z.string(),
       pubDate: z.date(),
       description: z.string(),
       author: z.string(),
-      image: z.object({
-        src: z.string(),
-        alt: z.string()
+      cover: image().refine((img) => img.width >= 300, {
+        message: "Cover image must be at least 300 pixels wide!",
       }),
+      coverAlt: z.string(),
       tags: z.array(z.string())
     })
 });
