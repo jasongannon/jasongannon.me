@@ -6,7 +6,7 @@ import ThemeSwitcher from "./theme-switcher.astro"
   <div class="navbar bg-base-100">
     <div class="navbar-start">
       <div class="dropdown">
-        <div tabindex="0" role="button" class="btn btn-ghost sm:hidden">
+        <div tabindex="-1" role="button" class="btn btn-ghost sm:hidden">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-5 w-5"
@@ -21,11 +21,11 @@ import ThemeSwitcher from "./theme-switcher.astro"
           >
         </div>
         <ul
-          tabindex="0"
+
           class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
         >
-        <li><a href="/about">About</a></li>
-        <li><a href="/blog">Blog</a></li>
+        <li><a aria-label="About" href="/about">About</a></li>
+        <li><a aria-label="Blog" href="/blog">Blog</a></li>
         </ul>
       </div>
       <a href="/" class="btn btn-ghost">Home</a>

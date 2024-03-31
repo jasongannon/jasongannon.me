@@ -14,8 +14,8 @@ const { frontmatter } = Astro.props;
   <img src={frontmatter.image.src} width="300" alt={frontmatter.image.alt} />
 
   <div class="flex flex-wrap ">
-    {
-      frontmatter.tags.map((tag) => (
+     {
+       frontmatter.tags.map((tag: string) => (
         <p class="m-1 rounded-lg border-inherit border-dotted py-2 px-4 text-sm bg-base-300">
           <a href={`/tags/${tag}`}>{tag}</a>
         </p>
