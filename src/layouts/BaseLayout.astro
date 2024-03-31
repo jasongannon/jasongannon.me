@@ -10,10 +10,10 @@ const { pageTitle } = Astro.props;
   <Head />
   <body class="box-border h-screen my-o mx-auto leading-6 p-4">
     <Navbar />
-    <main class="p-5 flex-column mx-auto mb-auto w-full max-w-screen-lg">
-      <h1 class="my-4 mx-0 text-4xl">{pageTitle}</h1>
+    <main class="prose p-6 flex-column mx-auto mb-auto w-full max-w-screen-md">
+      <h1 class="my-4 mx-0 p-0 text-4xl">{pageTitle}</h1>
       <slot />
-      <Footer />
     </main>
+    <Footer />
   </body>
 </html>
