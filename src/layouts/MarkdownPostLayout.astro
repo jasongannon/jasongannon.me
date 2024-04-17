@@ -1,27 +1,26 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 import { Image } from "astro:assets";
+import { Icon } from 'astro-icon/components'
 const { frontmatter } = Astro.props;
 ---
 
 
 <BaseLayout class="prose" pageTitle={frontmatter.title}>
-  <p><em>{frontmatter.description}</em></p>
-  <p>{frontmatter.pubDate.toString().slice(0, 10)}</p>
-
-  <p>Written by: <a href="/about/">{frontmatter.author}</a></p>
-
-  <Image src={frontmatter.cover} width={1028} alt={frontmatter.coverAlt} />
-
+  <p class="flex m-0">{frontmatter.description}
+  <p class="flex m-0"><Icon name="clock" class="ml-0 mr-1 mt-1.5" />
+    {frontmatter.pubDate.toString().slice(4, 15)}</p>
+    By: <a href="/about/">{frontmatter.author}</a></p>
+  
   <div class="flex flex-wrap ">
      {
        frontmatter.tags.map((tag: string) => (
-        <p class="m-1 rounded-lg border-inherit border-dotted py-2 px-4 text-sm bg-base-300">
+        <p class="m-1 rounded-lg border-inherit border-dotted py-1 px-2  hover:bg-base-300 ">
           <a href={`/tags/${tag}`}>{tag}</a>
         </p>
       ))
     }
   </div>
-
+  <Image src={frontmatter.cover} width={1028} alt={frontmatter.coverAlt} />
   <slot />
 </BaseLayout>
