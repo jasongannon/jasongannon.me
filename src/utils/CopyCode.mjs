@@ -1,4 +1,4 @@
-let copyButtonLabel = "Copy Code";
+let copyButtonLabel = "copy   ";
   let codeBlocks = Array.from(document.querySelectorAll("pre"));
 
   for (let codeBlock of codeBlocks) {
@@ -27,7 +27,7 @@ let copyButtonLabel = "Copy Code";
     await navigator.clipboard.writeText(text);
 
     // visual feedback that task is completed
-    button.innerText = "Code Copied";
+    button.innerText = "copied!";
 
     setTimeout(() => {
       button.innerText = copyButtonLabel;
