@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  overflow-y: scroll;
+}
+
+html,
+body {
+  @apply size-full;
+}
+
+
+header {
+  @apply fixed top-0 left-0 right-0 z-50 py-5;
+  @apply backdrop-blur-sm saturate-200;
+}

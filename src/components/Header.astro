@@ -1,5 +1,5 @@
 ---
-import ThemeSwitcher from "./ThemeToggle.astro"
+import ThemeToggle from "./ThemeToggle.astro"
 ---
 
 <header class="w-full p-4 max-w-screen-md mx-auto flex-row justify-between">
@@ -26,19 +26,20 @@ import ThemeSwitcher from "./ThemeToggle.astro"
         >
         <li><a aria-label="About" href="/about">About</a></li>
         <li><a aria-label="Blog" href="/blog">Blog</a></li>
+        <li><a aria-label="Tags" href="/tags">Tags</a></li>
         </ul>
       </div>
       <a href="/" class="btn btn-ghost">Home</a>
     </div>
     <div class="navbar-center hidden sm:flex">
       <ul class="menu menu-horizontal px-1">
-        <li><a href="/about">About</a></li>
-        <li><a href="/blog">Blog</a></li>
-        <li><a href="/tags">Tags</a></li>
+        <li><a aria-label="About" href="/about">About</a></li>
+        <li><a aria-label="Blog" href="/blog">Blog</a></li>
+        <li><a aria-label="Tags" href="/tags">Tags</a></li>
       </ul>
     </div>
     <div class="navbar-end">
-        <ThemeSwitcher />
+        <ThemeToggle />
     </div>
   </div>
 </header>
