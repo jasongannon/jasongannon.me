@@ -1,10 +1,12 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Container from "@components/Container.astro";
 
 const pageTitle = "Home";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
+  <Container>
   <h2 class="my-4 mx-0 text-2xl">Subtitle</h2>
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dapibus
@@ -146,4 +148,5 @@ const pageTitle = "Home";
     consectetur, posuere lectus non, auctor turpis. Nulla lacinia luctus neque
     in pharetra.
   </p>
+  </Container>
 </BaseLayout>

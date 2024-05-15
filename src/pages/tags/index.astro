@@ -1,4 +1,5 @@
 ---
+import Container from "@components/Container.astro";
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 const allPosts = await getCollection("posts");
@@ -7,15 +8,17 @@ const pageTitle = "Tag Index";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
+  <Container>
   <div class="tags">
     {
       tags.map((tag) => (
         <p class="tag">
-          <a class="link m-1 hover:bg-base-300 rounded-lg border-inherit border-dotted py-2 px-4 bg-base-100" href={`/tags/${tag}`}>
+          <a href={`/tags/${tag}`}>
             {tag}
           </a>
         </p>
       ))
     }
   </div>
+  </Container>
 </BaseLayout>
