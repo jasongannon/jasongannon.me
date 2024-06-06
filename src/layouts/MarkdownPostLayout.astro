@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
+import Container from '@components/Container.astro';
 import { Image } from "astro:assets";
 import { Icon } from 'astro-icon/components'
 import '@styles/copyCode.css'
@@ -13,6 +14,7 @@ const { frontmatter } = Astro.props;
   copyCode();
 </script>
 <BaseLayout class="prose" pageTitle={frontmatter.title}>
+  <Container>
   <p class="flex m-0">{frontmatter.description}
   <p class="flex m-0"><Icon name="clock" class="ml-0 mr-1 mt-1.5" />
     {frontmatter.pubDate.toString().slice(4, 15)}</p>
@@ -29,5 +31,6 @@ const { frontmatter } = Astro.props;
   </div>
   <Image src={frontmatter.cover} width={1028} alt={frontmatter.coverAlt} />
   <slot />
+  </Container>
 </BaseLayout>
 
