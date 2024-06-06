@@ -1,51 +1,20 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
+import Container from '@components/Container.astro';
 import { Image } from "astro:assets";
 import { Icon } from 'astro-icon/components'
-import '../CopyCodeButton/styles.css'
+import '@styles/copyCode.css'
 const { frontmatter } = Astro.props;
 
 
 ---
 
 <script>
-  let copyButtonLabel = "Copy Code";
-  let codeBlocks = Array.from(document.querySelectorAll("pre"));
-
-  for (let codeBlock of codeBlocks) {
-    let wrapper = document.createElement("div");
-    wrapper.style.position = "relative";
-
-    let copyButton = document.createElement("button");
-    copyButton.className = "copy-code";
-    copyButton.innerHTML = copyButtonLabel;
-
-    codeBlock.setAttribute("tabindex", "0");
-    codeBlock.appendChild(copyButton);
-    // wrap codebock with relative parent element
-    codeBlock.parentNode.insertBefore(wrapper, codeBlock);
-    wrapper.appendChild(codeBlock);
-
-    copyButton.addEventListener("click", async () => {
-      await copyCode(codeBlock, copyButton);
-    });
-  }
-
-  async function copyCode(block, button) {
-    let code = block.querySelector("code");
-    let text = code.innerText;
-
-    await navigator.clipboard.writeText(text);
-
-    // visual feedback that task is completed
-    button.innerText = "Code Copied";
-
-    setTimeout(() => {
-      button.innerText = copyButtonLabel;
-    }, 700);
-  }
+  import copyCode from "@utils/CopyCode.mjs";
+  copyCode();
 </script>
 <BaseLayout class="prose" pageTitle={frontmatter.title}>
+  <Container>
   <p class="flex m-0">{frontmatter.description}
   <p class="flex m-0"><Icon name="clock" class="ml-0 mr-1 mt-1.5" />
     {frontmatter.pubDate.toString().slice(4, 15)}</p>
@@ -62,5 +31,6 @@ const { frontmatter } = Astro.props;
   </div>
   <Image src={frontmatter.cover} width={1028} alt={frontmatter.coverAlt} />
   <slot />
+  </Container>
 </BaseLayout>
 

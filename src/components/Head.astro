@@ -1,0 +1,41 @@
+---
+import "../styles/global.css";
+const { pageTitle } = Astro.props;
+
+import { ViewTransitions } from "astro:transitions";
+---
+
+<script is:inline>
+  // ☝️ This script prevent the FART effect.
+  if (localStorage.getItem("theme") === null) {
+    document.documentElement.setAttribute("data-theme", "light");
+  } else
+    document.documentElement.setAttribute(
+      "data-theme",
+      localStorage.getItem("theme")
+    );
+  // "theme" LocalStorage value is set by the package to remember user preference.
+  // The value is checked and applyed before rendering anything.
+</script>
+<script>
+  import { themeChange } from "theme-change";
+  themeChange();
+  // 👆 you could import the CDN directly instead of these two lines
+</script>
+
+
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta name="generator" content={Astro.generator} />
+
+
+
+<meta name="description" content="Astro description" />
+
+
+
+<link rel="sitemap" href="/sitemap-index.xml" />
+<meta name="generator" content={Astro.generator} />
+<title>{pageTitle}</title>

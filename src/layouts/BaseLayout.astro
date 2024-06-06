@@ -1,17 +1,20 @@
 ---
-import Navbar from "../components/navbar.astro";
-import Footer from "../components/footer.astro";
-import Head from "../components/head.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import Head from "@components/Head.astro";
+import "../styles/global.css";
 const { pageTitle } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en" data-theme="light">
+  
+<head>
   <Head />
-  <body class="box-border h-screen my-o mx-auto leading-6 p-4">
-    <Navbar />
-    <main class="prose p-6 flex-column mx-auto mb-auto w-full max-w-screen-md">
-      <h1 class="text-center my-4 p-0 text-4xl">{pageTitle}</h1>
+</head>
+  <body>
+    <Header />
+    <main>
       <slot />
     </main>
     <Footer />

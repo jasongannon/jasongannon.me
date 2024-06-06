@@ -1,7 +1,8 @@
 ---
+import Container from "@components/Container.astro";
 import { getCollection } from "astro:content";
-import BaseLayout from "../layouts/BaseLayout.astro";
-import BlogPost from "../components/blog-post.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import BlogPost from "@components/BlogPost.astro";
 import { Image } from "astro:assets";
 const { frontmatter } = Astro.props;
 const allPosts = await getCollection("posts");
@@ -9,6 +10,8 @@ const pageTitle = "My Astro Learning Blog";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
+  <Container>
+    <h1 class="my-4 mx-0 text-4xl">My Astro Learning Blog</h1>
   <h2 class="my-4 mx-0 text-2xl">Subtitle</h2>
   <p>This is where I will post about my journey learning Astro.</p>
   <ul>
@@ -25,4 +28,5 @@ const pageTitle = "My Astro Learning Blog";
       ))
     }
   </ul>
+  </Container>
 </BaseLayout>

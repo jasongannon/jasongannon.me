@@ -1,10 +1,13 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import Hero from "../components/hero.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Container from "@components/Container.astro";
+
 const pageTitle = "Home";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
+  <Container>
+    <h1 class="my-4 mx-0 text-3xl">{pageTitle}</h1>
   <h2 class="my-4 mx-0 text-2xl">Subtitle</h2>
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dapibus
@@ -34,4 +37,117 @@ const pageTitle = "Home";
     consectetur, posuere lectus non, auctor turpis. Nulla lacinia luctus neque
     in pharetra.
   </p>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dapibus
+    molestie nunc sit amet tempus. Donec quis nibh dui. Suspendisse venenatis at
+    lacus vitae vehicula. Integer orci nulla, malesuada nec ante ut, porta
+    tristique urna. Duis semper accumsan hendrerit. Duis molestie velit ut
+    mauris lacinia, vitae fermentum nunc placerat. Mauris at consequat nisl.
+    Pellentesque arcu orci, imperdiet eget lacinia id, malesuada in leo.
+    Vestibulum euismod dolor ipsum, et tincidunt neque volutpat non. Praesent
+    faucibus sapien et velit condimentum, ac venenatis nunc fringilla. Aenean
+    aliquet mauris sapien, sed viverra ex faucibus vel. Nunc suscipit sagittis
+    nulla, nec aliquam lorem convallis in. Cras in massa eget libero malesuada
+    dictum a vitae ligula. Pellentesque sit amet dui pharetra, sodales ligula
+    ut, suscipit nisl. Morbi cursus luctus lobortis. Vivamus purus dolor,
+    pretium vel tempor in, rutrum ut nisl. Aenean commodo consectetur porta.
+    Morbi et nisi dui. Nulla cursus nisi sit amet est ultrices blandit. Orci
+    varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+    mus. Suspendisse tempus sodales lacus, eu consectetur turpis dictum quis. In
+    hac habitasse platea dictumst. Nulla vitae congue nisl. Morbi congue dictum
+    ultrices. Integer eget libero ac augue venenatis ultricies. Etiam fermentum
+    lectus et magna scelerisque, et pharetra massa ornare. Vivamus rhoncus enim
+    orci, at aliquam orci porta a. Sed in nulla non est hendrerit pellentesque.
+    Nullam gravida elit ac gravida fermentum. Donec tincidunt est sed aliquam
+    volutpat. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+    Vivamus feugiat felis quis sapien suscipit, vel tincidunt odio porttitor.
+    Vestibulum blandit purus justo, vel sollicitudin mi pretium non. Ut in justo
+    consectetur, posuere lectus non, auctor turpis. Nulla lacinia luctus neque
+    in pharetra.
+  </p>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dapibus
+    molestie nunc sit amet tempus. Donec quis nibh dui. Suspendisse venenatis at
+    lacus vitae vehicula. Integer orci nulla, malesuada nec ante ut, porta
+    tristique urna. Duis semper accumsan hendrerit. Duis molestie velit ut
+    mauris lacinia, vitae fermentum nunc placerat. Mauris at consequat nisl.
+    Pellentesque arcu orci, imperdiet eget lacinia id, malesuada in leo.
+    Vestibulum euismod dolor ipsum, et tincidunt neque volutpat non. Praesent
+    faucibus sapien et velit condimentum, ac venenatis nunc fringilla. Aenean
+    aliquet mauris sapien, sed viverra ex faucibus vel. Nunc suscipit sagittis
+    nulla, nec aliquam lorem convallis in. Cras in massa eget libero malesuada
+    dictum a vitae ligula. Pellentesque sit amet dui pharetra, sodales ligula
+    ut, suscipit nisl. Morbi cursus luctus lobortis. Vivamus purus dolor,
+    pretium vel tempor in, rutrum ut nisl. Aenean commodo consectetur porta.
+    Morbi et nisi dui. Nulla cursus nisi sit amet est ultrices blandit. Orci
+    varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+    mus. Suspendisse tempus sodales lacus, eu consectetur turpis dictum quis. In
+    hac habitasse platea dictumst. Nulla vitae congue nisl. Morbi congue dictum
+    ultrices. Integer eget libero ac augue venenatis ultricies. Etiam fermentum
+    lectus et magna scelerisque, et pharetra massa ornare. Vivamus rhoncus enim
+    orci, at aliquam orci porta a. Sed in nulla non est hendrerit pellentesque.
+    Nullam gravida elit ac gravida fermentum. Donec tincidunt est sed aliquam
+    volutpat. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+    Vivamus feugiat felis quis sapien suscipit, vel tincidunt odio porttitor.
+    Vestibulum blandit purus justo, vel sollicitudin mi pretium non. Ut in justo
+    consectetur, posuere lectus non, auctor turpis. Nulla lacinia luctus neque
+    in pharetra.
+  </p>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dapibus
+    molestie nunc sit amet tempus. Donec quis nibh dui. Suspendisse venenatis at
+    lacus vitae vehicula. Integer orci nulla, malesuada nec ante ut, porta
+    tristique urna. Duis semper accumsan hendrerit. Duis molestie velit ut
+    mauris lacinia, vitae fermentum nunc placerat. Mauris at consequat nisl.
+    Pellentesque arcu orci, imperdiet eget lacinia id, malesuada in leo.
+    Vestibulum euismod dolor ipsum, et tincidunt neque volutpat non. Praesent
+    faucibus sapien et velit condimentum, ac venenatis nunc fringilla. Aenean
+    aliquet mauris sapien, sed viverra ex faucibus vel. Nunc suscipit sagittis
+    nulla, nec aliquam lorem convallis in. Cras in massa eget libero malesuada
+    dictum a vitae ligula. Pellentesque sit amet dui pharetra, sodales ligula
+    ut, suscipit nisl. Morbi cursus luctus lobortis. Vivamus purus dolor,
+    pretium vel tempor in, rutrum ut nisl. Aenean commodo consectetur porta.
+    Morbi et nisi dui. Nulla cursus nisi sit amet est ultrices blandit. Orci
+    varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+    mus. Suspendisse tempus sodales lacus, eu consectetur turpis dictum quis. In
+    hac habitasse platea dictumst. Nulla vitae congue nisl. Morbi congue dictum
+    ultrices. Integer eget libero ac augue venenatis ultricies. Etiam fermentum
+    lectus et magna scelerisque, et pharetra massa ornare. Vivamus rhoncus enim
+    orci, at aliquam orci porta a. Sed in nulla non est hendrerit pellentesque.
+    Nullam gravida elit ac gravida fermentum. Donec tincidunt est sed aliquam
+    volutpat. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+    Vivamus feugiat felis quis sapien suscipit, vel tincidunt odio porttitor.
+    Vestibulum blandit purus justo, vel sollicitudin mi pretium non. Ut in justo
+    consectetur, posuere lectus non, auctor turpis. Nulla lacinia luctus neque
+    in pharetra.
+  </p>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dapibus
+    molestie nunc sit amet tempus. Donec quis nibh dui. Suspendisse venenatis at
+    lacus vitae vehicula. Integer orci nulla, malesuada nec ante ut, porta
+    tristique urna. Duis semper accumsan hendrerit. Duis molestie velit ut
+    mauris lacinia, vitae fermentum nunc placerat. Mauris at consequat nisl.
+    Pellentesque arcu orci, imperdiet eget lacinia id, malesuada in leo.
+    Vestibulum euismod dolor ipsum, et tincidunt neque volutpat non. Praesent
+    faucibus sapien et velit condimentum, ac venenatis nunc fringilla. Aenean
+    aliquet mauris sapien, sed viverra ex faucibus vel. Nunc suscipit sagittis
+    nulla, nec aliquam lorem convallis in. Cras in massa eget libero malesuada
+    dictum a vitae ligula. Pellentesque sit amet dui pharetra, sodales ligula
+    ut, suscipit nisl. Morbi cursus luctus lobortis. Vivamus purus dolor,
+    pretium vel tempor in, rutrum ut nisl. Aenean commodo consectetur porta.
+    Morbi et nisi dui. Nulla cursus nisi sit amet est ultrices blandit. Orci
+    varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+    mus. Suspendisse tempus sodales lacus, eu consectetur turpis dictum quis. In
+    hac habitasse platea dictumst. Nulla vitae congue nisl. Morbi congue dictum
+    ultrices. Integer eget libero ac augue venenatis ultricies. Etiam fermentum
+    lectus et magna scelerisque, et pharetra massa ornare. Vivamus rhoncus enim
+    orci, at aliquam orci porta a. Sed in nulla non est hendrerit pellentesque.
+    Nullam gravida elit ac gravida fermentum. Donec tincidunt est sed aliquam
+    volutpat. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+    Vivamus feugiat felis quis sapien suscipit, vel tincidunt odio porttitor.
+    Vestibulum blandit purus justo, vel sollicitudin mi pretium non. Ut in justo
+    consectetur, posuere lectus non, auctor turpis. Nulla lacinia luctus neque
+    in pharetra.
+  </p>
+  </Container>
 </BaseLayout>
