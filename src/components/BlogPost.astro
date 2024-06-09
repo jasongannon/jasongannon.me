@@ -1,5 +1,6 @@
 ---
+import BigLink from "./BigLink.astro";
 const { title, url } = Astro.props;
 ---
 
-<li><a href={url}>{title}</a></li>
+<li><BigLink url={url} title={title} /></li>

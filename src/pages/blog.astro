@@ -11,22 +11,24 @@ const pageTitle = "My Astro Learning Blog";
 
 <BaseLayout pageTitle={pageTitle}>
   <Container>
-    <h1 class="my-4 mx-0 text-4xl">My Astro Learning Blog</h1>
-  <h2 class="my-4 mx-0 text-2xl">Subtitle</h2>
-  <p>This is where I will post about my journey learning Astro.</p>
-  <ul>
-    {
-      allPosts.map((post) => (
-        <>
-          <Image
-            src={post.data.cover}
-            width={512}
-            alt={post.data.coverAlt}
-          />
-          <BlogPost url={`/posts/${post.slug}/`} title={post.data.title} />
-        </>
-      ))
-    }
-  </ul>
+    <section class="flex-col justify-center items-center py-8 mx-auto">
+      <h1 class="my-4 mx-0 text-4xl">My Astro Learning Blog</h1>
+      <h2 class="my-4 mx-0 text-2xl">Subtitle</h2>
+      <p>This is where I will post about my journey learning Astro.</p>
+      <ul>
+        {
+          allPosts.map((post) => (
+            <>
+              <Image
+                src={post.data.cover}
+                width={1024}
+                alt={post.data.coverAlt}
+              />
+              <BlogPost url={`/posts/${post.slug}/`} title={post.data.title} />
+            </>
+          ))
+        }
+      </ul>
+    </section>
   </Container>
 </BaseLayout>

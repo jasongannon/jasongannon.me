@@ -1,15 +1,18 @@
 ---
 import ThemeToggle from "./ThemeToggle.astro";
-import Container from "./Container.astro";
+import WideContainer from "./ContainerWide.astro";
+import BigLink from "./BigLink.astro";
+
+const { title, url } = Astro.props;
 ---
 
 <header>
-  <Container>
+  <WideContainer>
     <div class="flex flex-wrap gap-y-2 justify-between">
       <div class="navbar">
         <div class="navbar-start">
           <div class="dropdown">
-            <div tabindex="-1" role="button" class="btn btn-ghost sm:hidden">
+            <div tabindex="-1" role="button" class="btn btn-ghost md:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-5 w-5"
@@ -31,19 +34,17 @@ import Container from "./Container.astro";
               <li><a aria-label="Tags" href="/tags">Tags</a></li>
             </ul>
           </div>
-          <a class="font-semibold text-2xl"href="/">Home</a>
+          <a class="normal-case font-bold text-3xl" href="/">Jason Gannon</a>
         </div>
-        <div class="navbar-center hidden sm:flex">
-          <ul class="menu menu-horizontal px-1 text-2xl font-semibold">
-            <li><a aria-label="About" href="/about">About</a></li>
-            <li><a aria-label="Blog" href="/blog">Blog</a></li>
-            <li><a aria-label="Tags" href="/tags">Tags</a></li>
-          </ul>
+        <div class="navbar-center hidden md:flex">
+          <BigLink title={"About"} url={"/about"} />
+          <BigLink title={"Blog"} url={"/blog"} />
+          <BigLink title={"Tags"} url={"/tags"} />
         </div>
         <div class="navbar-end">
           <ThemeToggle />
         </div>
       </div>
     </div>
-  </Container>
+  </WideContainer>
 </header>

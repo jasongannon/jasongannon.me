@@ -1,0 +1,11 @@
+---
+const { title, url } = Astro.props;
+---
+
+<a
+  class="block p-4 link link-hover hover:text-info hover:no-underline text-lg font-medium"
+  href={url}
+  aria-label={title}
+>
+  {title}
+</a>
