@@ -36,13 +36,14 @@ const { title, url } = Astro.props;
           </div>
           <a class="font-bold text-3xl pl-8" href="/">Home</a>
         </div>
+        <div class="navbar-center hidden md:flex">
 
+          <BigLink title={"About"} url={"/about"} />
+          <BigLink title={"Blog"} url={"/blog"} />
+          <BigLink title={"Tags"} url={"/tags"} />
+        </div>
         <div class="navbar-end">
-          <div class="navbar-center hidden md:flex">
-            <BigLink title={"About"} url={"/about"} />
-            <BigLink title={"Blog"} url={"/blog"} />
-            <BigLink title={"Tags"} url={"/tags"} />
-          </div>
+
           <ThemeToggle />
         </div>
       </div>

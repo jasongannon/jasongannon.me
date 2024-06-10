@@ -8,13 +8,13 @@ const { pageTitle } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en">
 
 <head>
   <Head />
 </head>
   <body>
-    <div class="bg-repeat" style="background-image: url(../../../src/images/background.webp)">
+    <div class="flex flex-col h-screen justify-between">
     <Header />
     <main>
       <slot />
