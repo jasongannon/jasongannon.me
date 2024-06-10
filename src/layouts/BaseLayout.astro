@@ -4,19 +4,22 @@ import Footer from "@components/Footer.astro";
 import Head from "@components/Head.astro";
 import "../styles/global.css";
 const { pageTitle } = Astro.props;
+
 ---
 
 <!doctype html>
 <html lang="en" data-theme="light">
-  
+
 <head>
   <Head />
 </head>
   <body>
+    <div class="bg-repeat" style="background-image: url(../../../src/images/background.webp)">
     <Header />
     <main>
       <slot />
     </main>
     <Footer />
+    </div>
   </body>
 </html>
