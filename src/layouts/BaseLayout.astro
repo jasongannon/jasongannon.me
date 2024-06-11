@@ -4,19 +4,22 @@ import Footer from "@components/Footer.astro";
 import Head from "@components/Head.astro";
 import "../styles/global.css";
 const { pageTitle } = Astro.props;
+
 ---
 
 <!doctype html>
-<html lang="en" data-theme="light">
-  
+<html lang="en">
+
 <head>
   <Head />
 </head>
   <body>
+    <div class="flex flex-col h-screen justify-between">
     <Header />
     <main>
       <slot />
     </main>
     <Footer />
+    </div>
   </body>
 </html>
