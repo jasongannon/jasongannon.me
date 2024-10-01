@@ -7,6 +7,8 @@ import { Image } from "astro:assets";
 const { frontmatter } = Astro.props;
 const allPosts = await getCollection("posts");
 const pageTitle = "My Astro Learning Blog";
+
+
 ---
 
 <BaseLayout pageTitle={pageTitle}>
