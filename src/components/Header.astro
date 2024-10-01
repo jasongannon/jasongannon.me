@@ -36,18 +36,31 @@ const { title, url } = Astro.props;
               <li><a aria-label="Tags" href="/tags">Tags</a></li>
             </ul>
           </div>
-        <Logo></Logo>
-
+          <Logo />
         </div>
         <div class="navbar-center hidden md:flex">
-
-          <BigLink title={"About"} url={"/about"} />
-          <BigLink title={"CV"} url={"/cv"} />
-          <BigLink title={"Blog"} url={"/blog"} />
-          <BigLink title={"Tags"} url={"/tags"} />
+          <BigLink
+            title="About"
+            url="/about"
+            current={Astro.url.pathname === "/about"}
+          />
+          <BigLink
+            title="CV"
+            url="/cv"
+            current={Astro.url.pathname === "/cv"}
+          />
+          <BigLink
+            title="Blog"
+            url="/blog"
+            current={Astro.url.pathname === "/blog"}
+          />
+          <BigLink
+            title="Tags"
+            url="/tags"
+            current={Astro.url.pathname === "/tags"}
+          />
         </div>
         <div class="navbar-end">
-
           <ThemeToggle />
         </div>
       </div>

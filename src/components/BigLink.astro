@@ -1,11 +1,13 @@
 ---
-const { title, url } = Astro.props;
+const { title, url, current = false } = Astro.props;
 ---
 
 <a
-  class="block p-4 link link-hover hover:text-info hover:no-underline text-lg font-medium"
+  class="block p-4 link hover:text-info hover:underline text-lg font-medium focus:outline-none focus:ring-2 focus:ring-info focus:ring-offset-2"
   href={url}
   aria-label={title}
+  role="menuitem"
+  aria-current={current ? "page" : undefined}
 >
   {title}
 </a>

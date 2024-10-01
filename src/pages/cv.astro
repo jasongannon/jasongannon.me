@@ -1,11 +1,17 @@
 ---
-
+import Container from "@components/Container.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import CV from "@components/CV.astro";
 
-const pageTitle = "CV";
+const pageTitle = "Resume";
+const pdfTitle = "View or Download a PDF of my Resume";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
- <CV></CV>
+  <Container>
+    <h1 class="mb-4 mx-0 text-4xl">{pageTitle}</h1>
+    <h2 class="mb-4 mx-0 text-2xl">{pdfTitle}</h2>
+
+    <CV /></Container
+  >
 </BaseLayout>

@@ -8,6 +8,7 @@ const { frontmatter } = Astro.props;
 const allPosts = await getCollection("posts");
 const pageTitle = "My Astro Learning Blog";
 
+const eagerLoadCount = 3;
 
 ---
 
@@ -19,12 +20,13 @@ const pageTitle = "My Astro Learning Blog";
       <p>This is where I will post about my journey learning Astro.</p>
       <ul>
         {
-          allPosts.map((post) => (
+          allPosts.map((post, index) => (
             <>
               <Image
                 src={post.data.cover}
                 width={1024}
                 alt={post.data.coverAlt}
+                loading={index < eagerLoadCount ? "eager" : "lazy"}
               />
               <BlogPost url={`/posts/${post.slug}/`} title={post.data.title} />
             </>

@@ -32,7 +32,7 @@ const { frontmatter } = Astro.props;
       ))
     }
   </div>
-  <Image src={frontmatter.cover} width={1028} alt={frontmatter.coverAlt} />
+  <Image src={frontmatter.cover} width={1028} alt={frontmatter.coverAlt} loading="eager"/>
   <slot />
 </Container>
 </BaseLayout>
