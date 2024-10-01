@@ -2,6 +2,7 @@
 import ThemeToggle from "./ThemeToggle.astro";
 import WideContainer from "./ContainerWide.astro";
 import BigLink from "./BigLink.astro";
+import Logo from "./Logo.astro";
 
 const { title, url } = Astro.props;
 ---
@@ -30,15 +31,18 @@ const { title, url } = Astro.props;
               class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li><a aria-label="About" href="/about">About</a></li>
+              <li><a aria-label="CV" href="/cv">CV</a></li>
               <li><a aria-label="Blog" href="/blog">Blog</a></li>
               <li><a aria-label="Tags" href="/tags">Tags</a></li>
             </ul>
           </div>
-          <a class="font-bold text-3xl pl-8" href="/">Home</a>
+        <Logo></Logo>
+
         </div>
         <div class="navbar-center hidden md:flex">
 
           <BigLink title={"About"} url={"/about"} />
+          <BigLink title={"CV"} url={"/cv"} />
           <BigLink title={"Blog"} url={"/blog"} />
           <BigLink title={"Tags"} url={"/tags"} />
         </div>
