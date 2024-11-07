@@ -12,7 +12,7 @@ const { frontmatter } = Astro.props;
 </script>
 <BaseLayout pageTitle={frontmatter.title}>
   <Container>
-    <article class="prose prose-lg dark:prose-invert prose-headings:text-primary prose-a:text-secondary max-w-3xl mx-auto">
+    <article class="prose prose-lg dark:prose-invert prose-headings:text-primary prose-a:text-primary max-w-3xl mx-auto">
       <div class="not-prose mb-8">
         <h1 class=" mb-4 mx-0 text-lg font-semibold underline decoration-double underline-offset-4">{frontmatter.title}</h1>
         <div class="flex gap-4 text-sm">
@@ -22,7 +22,10 @@ const { frontmatter } = Astro.props;
         {frontmatter.tags && (
           <div class="flex gap-2 mt-2">
             {frontmatter.tags.map((tag) => (
-              <span class="badge badge-secondary">{tag}</span>
+              <a
+            href={`/tags/${tag}`}
+            class="px-1 py-1 text-sm rounded-sm text-primary hover:text-primary-content border border-primary hover:bg-primary transition-colors w-fit"
+          >#{tag}</a>
             ))}
           </div>
         )}
