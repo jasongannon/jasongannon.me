@@ -10,16 +10,17 @@ const pageTitle = "Tag Index";
 <BaseLayout pageTitle={pageTitle}>
   <Container>
     <h1 class="mb-4 mx-0 text-lg font-semibold underline decoration-double underline-offset-4">Tags</h1>
-  <div class="tags">
-    {
-      tags.map((tag) => (
-        <p class="tag">
-          <a href={`/tags/${tag}`}>
-            {tag}
+    <div class="flex flex-col gap-2">
+      {
+        tags.map((tag) => (
+          <a
+            href={`/tags/${tag}`}
+            class="px-4 py-2 text-base rounded-sm bg-base-200 hover:bg-base-300 transition-colors hover:translate-x-1 duration-200 w-fit"
+          >
+            #{tag}
           </a>
-        </p>
-      ))
-    }
-  </div>
+        ))
+      }
+    </div>
   </Container>
 </BaseLayout>

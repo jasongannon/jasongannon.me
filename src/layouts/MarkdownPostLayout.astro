@@ -13,26 +13,42 @@ const { frontmatter } = Astro.props;
 </script>
 <BaseLayout class="prose" pageTitle={frontmatter.title}>
   <Container>
-    <p class="flex m-0">
-      {frontmatter.description}
-    </p>
-    <p class="flex m-0">
-      <Icon name="clock" class="ml-0 mr-1 mt-1.5" />
-      {frontmatter.pubDate.toString().slice(4, 15)}
-    </p>
-    <span>By: <a href="/about/">{frontmatter.author}</a></span>
+    {/* Article Header Section */}
+    <div class="space-y-4 mb-8 border-b border-base-300 pb-6">
+      {/* Description */}
+      <p class="mb-4 mx-0 text-lg font-semibold underline decoration-double underline-offset-4"">
+        {frontmatter.description}
+      </p>
+      
+      {/* Metadata Row */}
+      <div class="flex flex-wrap items-center gap-4 text-sm text-base-content/70">
+        {/* Date */}
+        <div class="flex items-center gap-1">
+          <Icon name="clock" class="w-4 h-4" />
+          <span>{frontmatter.pubDate.toString().slice(4, 15)}</span>
+        </div>
+        
+        {/* Author */}
+        <div class="flex items-center gap-1">
+          <Icon name="person" class="w-4 h-4" />
+          <span> <a href="/about/" class="hover:text-primary transition-colors">{frontmatter.author}</a></span>
+        </div>
+      </div>
 
+      {/* Tags */}
+      <div class="flex flex-wrap gap-2">
+        {frontmatter.tags.map((tag: string) => (
+          <a
+            href={`/tags/${tag}`}
+            class="px-3 py-1 text-sm rounded-sm bg-base-200 hover:bg-base-300 transition-colors"
+          >
+            #{tag}
+          </a>
+        ))}
+      </div>
+    </div>
 
-  <div class="flex flex-wrap">
-    {
-      frontmatter.tags.map((tag: string) => (
-        <p class="m-1 rounded-lg border-inherit border-dotted py-1 px-2  hover:bg-base-300 ">
-          <a href={`/tags/${tag}`}>{tag}</a>
-        </p>
-      ))
-    }
-  </div>
-  <Image src={frontmatter.cover} width={1028} alt={frontmatter.coverAlt} loading="eager"/>
-  <slot />
-</Container>
+    {/* Article Content */}
+    <slot />
+  </Container>
 </BaseLayout>
