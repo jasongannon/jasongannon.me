@@ -1,7 +1,6 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 import Container from "@components/Container.astro";
-import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 import "@styles/copyCode.css";
 const { frontmatter } = Astro.props;
@@ -11,44 +10,25 @@ const { frontmatter } = Astro.props;
   import copyCode from "@utils/CopyCode.mjs";
   copyCode();
 </script>
-<BaseLayout class="prose" pageTitle={frontmatter.title}>
+<BaseLayout pageTitle={frontmatter.title}>
   <Container>
-    {/* Article Header Section */}
-    <div class="space-y-4 mb-8 border-b border-base-300 pb-6">
-      {/* Description */}
-      <p class="mb-4 mx-0 text-lg font-semibold underline decoration-double underline-offset-4"">
-        {frontmatter.description}
-      </p>
-      
-      {/* Metadata Row */}
-      <div class="flex flex-wrap items-center gap-4 text-sm text-base-content/70">
-        {/* Date */}
-        <div class="flex items-center gap-1">
-          <Icon name="clock" class="w-4 h-4" />
-          <span>{frontmatter.pubDate.toString().slice(4, 15)}</span>
+    <article class="prose prose-lg dark:prose-invert prose-headings:text-primary prose-a:text-secondary max-w-3xl mx-auto">
+      <div class="not-prose mb-8">
+        <h1 class=" mb-4 mx-0 text-lg font-semibold underline decoration-double underline-offset-4">{frontmatter.title}</h1>
+        <div class="flex gap-4 text-sm">
+          <p>Written by {frontmatter.author}</p>
+          <p>Published on: {frontmatter.pubDate.toString().slice(4, 15)}</p>
         </div>
-        
-        {/* Author */}
-        <div class="flex items-center gap-1">
-          <Icon name="person" class="w-4 h-4" />
-          <span> <a href="/about/" class="hover:text-primary transition-colors">{frontmatter.author}</a></span>
-        </div>
+        {frontmatter.tags && (
+          <div class="flex gap-2 mt-2">
+            {frontmatter.tags.map((tag) => (
+              <span class="badge badge-secondary">{tag}</span>
+            ))}
+          </div>
+        )}
       </div>
 
-      {/* Tags */}
-      <div class="flex flex-wrap gap-2">
-        {frontmatter.tags.map((tag: string) => (
-          <a
-            href={`/tags/${tag}`}
-            class="px-3 py-1 text-sm rounded-sm bg-base-200 hover:bg-base-300 transition-colors"
-          >
-            #{tag}
-          </a>
-        ))}
-      </div>
-    </div>
-
-    {/* Article Content */}
-    <slot />
+      <slot />
+    </article>
   </Container>
 </BaseLayout>

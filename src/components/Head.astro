@@ -8,7 +8,7 @@ import { ViewTransitions } from "astro:transitions";
 <script is:inline>
   // ☝️ This script prevent the FART effect.
   if (localStorage.getItem("theme") === null) {
-    document.documentElement.setAttribute("data-theme", "corporate");
+    document.documentElement.setAttribute("data-theme", "light");
   } else
     document.documentElement.setAttribute(
       "data-theme",

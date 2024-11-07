@@ -1,9 +1,10 @@
 ---
-import ThemeToggle from "./ThemeToggle.astro";
+
 import WideContainer from "./ContainerWide.astro";
 import BigLink from "./BigLink.astro";
 import Logo from "./Logo.astro";
 import ThemeController from "./ThemeController.astro";
+import ThemeToggle from "./ThemeToggle.astro";
 
 const { title, url } = Astro.props;
 ---
@@ -62,7 +63,8 @@ const { title, url } = Astro.props;
           />
         </div>
         <div class="navbar-end">
-          <ThemeController />
+
+          <ThemeToggle />
         </div>
       </div>
     </div>
