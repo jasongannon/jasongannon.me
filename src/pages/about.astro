@@ -23,37 +23,44 @@ const skills = [
 ];
 ---
 
-<BaseLayout pageTitle={pageTitle}>\
+<BaseLayout pageTitle={pageTitle}
+  >
   <Container>
-    <h1 class="mb-4 mx-0 text-lg font-semibold underline decoration-double underline-offset-4">About</h1>
+    <section class="flex-col justify-center items-center mx-auto">
+      <h1
+        class="mb-4 mx-0 text-lg font-semibold underline decoration-double underline-offset-4"
+      >
+        About
+      </h1>
 
-  <p>
-    I am working through Astro's introductory tutorial. This is the second page
-    on my website, and it's the first one I built myself!
-  </p>
+      <p>
+        I am working through Astro's introductory tutorial. This is the second
+        page on my website, and it's the first one I built myself!
+      </p>
 
-  <p>
-    This site will update as I complete more of the tutorial, so keep checking
-    back and see how my journey is going!
-  </p>
-  <p>Here are a few facts about me:</p>
-  <ul>
-    <li>My name is {identity.firstName} {identity.lastName}.</li>
-    <li>
-      I live in {identity.country} and I work as a {identity.occupation}.
-    </li>
-    {
-      identity.hobbies.length >= 2 && (
+      <p>
+        This site will update as I complete more of the tutorial, so keep
+        checking back and see how my journey is going!
+      </p>
+      <p>Here are a few facts about me:</p>
+      <ul>
+        <li>My name is {identity.firstName} {identity.lastName}.</li>
         <li>
-          My hobbies include {identity.hobbies[0]}, {identity.hobbies[1]}, and{" "}
-          {identity.hobbies[2]}
+          I live in {identity.country} and I work as a {identity.occupation}.
         </li>
-      )
-    }
-  </ul>
-  <p>My skills include:</p>
-  <ul>
-    {skills.map((skill) => <li class="skill">{skill}</li>)}
-  </ul>
-  <Container>
-</BaseLayout>
+        {
+          identity.hobbies.length >= 2 && (
+            <li>
+              My hobbies include {identity.hobbies[0]}, {identity.hobbies[1]},
+              and {identity.hobbies[2]}
+            </li>
+          )
+        }
+      </ul>
+      <p>My skills include:</p>
+      <ul>
+        {skills.map((skill) => <li class="skill">{skill}</li>)}
+      </ul>
+    </section>
+  </Container></BaseLayout
+>
