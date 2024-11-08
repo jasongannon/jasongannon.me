@@ -2,7 +2,10 @@
 import BaseLayout from "./BaseLayout.astro";
 import Container from "@components/Container.astro";
 import "@styles/copyCode.css";
+import H1 from "@components/Header1.astro";
 const { frontmatter } = Astro.props;
+const pageTitle = frontmatter.title;
+
 ---
 
 <script>
@@ -12,14 +15,10 @@ const { frontmatter } = Astro.props;
 <BaseLayout pageTitle={frontmatter.title}>
   <Container>
     <article
-      class="prose prose-lg dark:prose-invert prose-headings:text-primary prose-a:text-primary max-w-3xl mx-auto"
+      class="prose prose-md dark:prose-invert prose-headings:text-primary prose-a:text-primary max-w-3xl mx-auto"
     >
       <div class="not-prose mb-8">
-        <h1
-          class="mb-4 mx-0 text-lg font-semibold underline decoration-double underline-offset-4"
-        >
-          {frontmatter.title}
-        </h1>
+        <H1 pageTitle={pageTitle}/>
         <div class="flex gap-4 text-sm">
           <p>Written by {frontmatter.author}</p>
           <p>Published on: {frontmatter.pubDate.toString().slice(4, 15)}</p>

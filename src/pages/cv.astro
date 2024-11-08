@@ -2,6 +2,7 @@
 import Container from "@components/Container.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import CV from "@components/CV.astro";
+import H1 from "@components/Header1.astro";
 
 const pageTitle = "Resume";
 const pdfTitle = "View or Download a PDF of my Resume";
@@ -9,7 +10,7 @@ const pdfTitle = "View or Download a PDF of my Resume";
 
 <BaseLayout pageTitle={pageTitle}>
   <Container>
-    <h1 class="mb-4 mx-0 text-lg text-primary font-semibold underline decoration-double underline-offset-4">{pageTitle}</h1>
+    <H1  pageTitle={pageTitle}/>
 
     <CV /></Container
   >

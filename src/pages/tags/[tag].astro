@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import BlogPost from "@components/BlogPost.astro";
 import Container from "@components/Container.astro";
+import H1 from "@components/Header1.astro";
 
 export async function getStaticPaths() {
   const allPosts = await getCollection("posts");
@@ -23,12 +24,12 @@ export async function getStaticPaths() {
 
 const { tag } = Astro.params;
 const { posts } = Astro.props;
+const pageTitle = `# ${tag}`;
 ---
 
 <BaseLayout pageTitle={tag}>
   <Container>
-  <h1 class="mb-4 mx-0 text-lg font-semibold"
-># {tag}</h1>
+  <H1 pageTitle={pageTitle}/>
   <ul>
     {
       posts.map((post) => (

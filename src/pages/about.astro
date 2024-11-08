@@ -1,8 +1,9 @@
 ---
 import Container from "@components/Container.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
+import H1 from "@components/Header1.astro";
 
-const pageTitle = "About Me";
+const pageTitle = "About";
 
 const identity = {
   firstName: "Jason",
@@ -27,11 +28,7 @@ const skills = [
   >
   <Container>
     <section class="flex-col justify-center items-center mx-auto">
-      <h1
-        class="mb-4 mx-0 text-4xl text-primary font-semibold underline decoration-double underline-offset-4"
-      >
-        About
-      </h1>
+      <H1  pageTitle={pageTitle}/>
 
       <p>
         I am working through Astro's introductory tutorial. This is the second

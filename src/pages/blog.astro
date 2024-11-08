@@ -3,6 +3,7 @@ import Container from "@components/Container.astro";
 import { getCollection } from "astro:content";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import BlogPost from "@components/BlogPost.astro";
+import H1 from "@components/Header1.astro";
 const { frontmatter } = Astro.props;
 const allPosts = await getCollection("posts");
 const pageTitle = "My Astro Learning Blog";
@@ -14,7 +15,7 @@ const eagerLoadCount = 3;
 <BaseLayout pageTitle={pageTitle}>
   <Container>
     <section class="flex-col justify-center items-center mx-auto max-w-3xl">
-      <h1 class="mb-4 mx-0 text-lg text-primary font-semibold underline decoration-double underline-offset-4">Blog Posts</h1>
+      <H1  pageTitle={pageTitle}/>
 
       <ul class="space-y-4 w-full">
         {
