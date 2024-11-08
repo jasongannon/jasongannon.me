@@ -9,7 +9,7 @@ let copyButtonLabel = "copy   ";
     copyButton.className = "copy-code";
     copyButton.innerHTML = copyButtonLabel;
 
-    codeBlock.setAttribute("tabindex", "0");
+    codeBlock.setAttribute("tabindex", "-1");
     codeBlock.appendChild(copyButton);
     // wrap codebock with relative parent element
     codeBlock.parentNode.insertBefore(wrapper, codeBlock);

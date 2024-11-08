@@ -7,7 +7,7 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://gannon.ink',
+  site: 'https://jasongannon.me',
   integrations: [tailwind(), sitemap(), icon(), mdx()],
   markdown: {
     rehypePlugins: [[rehypeExternalLinks, {

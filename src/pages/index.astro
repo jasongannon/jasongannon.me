@@ -1,13 +1,17 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Container from "@components/Container.astro";
+import Divider from "@components/Divider.astro";
 
 const pageTitle = "Welcome!";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
+
   <Container>
-    <h1 class="mb-4 mx-0 text-lg font-semibold underline decoration-double underline-offset-4">{pageTitle}</h1>
+    <Divider />
+
+    <h1 class="mb-4 mx-0 text-4xl text-primary font-semibold underline decoration-double underline-offset-4">{pageTitle}</h1>
 
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dapibus
