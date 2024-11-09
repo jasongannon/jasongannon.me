@@ -3,10 +3,10 @@ import Container from "@components/Container.astro";
 import { getCollection } from "astro:content";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import BlogPost from "@components/BlogPost.astro";
-import H1 from "@components/Header1.astro";
+import H1 from "@components/Heading1.astro";
 const { frontmatter } = Astro.props;
 const allPosts = await getCollection("posts");
-const pageTitle = "My Astro Learning Blog";
+const pageTitle = "Posts";
 
 const eagerLoadCount = 3;
 
@@ -17,13 +17,14 @@ const eagerLoadCount = 3;
     <section class="flex-col justify-center items-center mx-auto max-w-3xl">
       <H1  pageTitle={pageTitle}/>
 
-      <ul class="space-y-4 w-full">
+      <ul class="space-y-4 w-full" aria-label="Blog posts">
         {
           allPosts.map((post, index) => (
             <li>
               <a
                 href={`/posts/${post.slug}/`}
-                class="relative group flex flex-nowrap p-4 rounded-sm text-primary hover:text-primary-content border border-primary hover:bg-primary transition-colors duration-300 ease-in-out"
+                aria-label={`Read ${post.data.title}${post.data.description ? ` - ${post.data.description}` : ''}`}
+                class="relative group flex flex-nowrap p-4 rounded-lg text-primary hover:text-primary-content border border-primary hover:bg-primary transition-colors duration-300 ease-in-out"
               >
                 <div class="flex flex-col flex-1 truncate pr-8">
                   <div class="font-semibold text-lg">

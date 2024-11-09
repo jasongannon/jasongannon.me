@@ -2,7 +2,7 @@
 import BaseLayout from "./BaseLayout.astro";
 import Container from "@components/Container.astro";
 import "@styles/copyCode.css";
-import H1 from "@components/Header1.astro";
+import H1 from "@components/Heading1.astro";
 const { frontmatter } = Astro.props;
 const pageTitle = frontmatter.title;
 
@@ -29,7 +29,7 @@ const pageTitle = frontmatter.title;
               {frontmatter.tags.map((tag) => (
                 <a
                   href={`/tags/${tag}`}
-                  class="px-1 py-1 text-sm text-secondary hover:text-secondary-content border border-secondary hover:bg-secondary transition-colors w-fit"
+                  class="px-1 py-1 text-sm rounded-lg text-secondary hover:text-secondary-content border border-secondary hover:bg-secondary transition-colors w-fit"
                 >
                   #{tag}
                 </a>

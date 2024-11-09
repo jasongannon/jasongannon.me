@@ -33,7 +33,7 @@ const { title, url } = Astro.props;
               class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li><a aria-label="About" href="/about">About</a></li>
-              <li><a aria-label="CV" href="/cv">CV</a></li>
+              <li><a aria-label="Resume" href="/resume">Resume</a></li>
               <li><a aria-label="Blog" href="/blog">Blog</a></li>
               <li><a aria-label="Tags" href="/tags">Tags</a></li>
             </ul>
@@ -47,9 +47,9 @@ const { title, url } = Astro.props;
             current={Astro.url.pathname === "/about"}
           />
           <BigLink
-            title="CV"
-            url="/cv"
-            current={Astro.url.pathname === "/cv"}
+            title="Resume"
+            url="/resume"
+            current={Astro.url.pathname === "/resume"}
           />
           <BigLink
             title="Blog"
@@ -65,7 +65,7 @@ const { title, url } = Astro.props;
         <div class="navbar-end">
 
      
-          <ThemeController />
+          <ThemeController aria-label="Theme Controller"/>
         </div>
       </div>
     </div>
