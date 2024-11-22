@@ -1,5 +1,5 @@
 ---
-// Get the initial theme from localStorage or system preference
+
 const getInitialTheme = `
   (() => {
     const storedTheme = localStorage.getItem("theme");
@@ -10,7 +10,6 @@ const getInitialTheme = `
 ---
 
 <label class="swap swap-rotate btn btn-ghost" for="theme-toggle">
-  <!-- Add visually hidden text for screen readers -->
   <span class="sr-only">Toggle theme</span>
   
   <input 

@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
-import Container from "@components/Container.astro";
+
 import "@styles/copyCode.css";
 import H1 from "@components/Heading1.astro";
 const { frontmatter } = Astro.props;
@@ -13,33 +13,17 @@ const pageTitle = frontmatter.title;
   copyCode();
 </script>
 <BaseLayout pageTitle={frontmatter.title}>
-  <Container>
+
     <article
-      class="prose prose-md dark:prose-invert prose-headings:text-primary prose-a:text-primary max-w-3xl mx-auto"
+      class="prose prose-md dark:prose-invert prose-headings:text-primary prose-a:text-primary max-w-none"
     >
       <div class="not-prose mb-8">
         <H1 pageTitle={pageTitle}/>
         <div class="flex gap-4 text-sm">
-          <p>Written by {frontmatter.author}</p>
-          <p>Published on: {frontmatter.pubDate.toString().slice(4, 15)}</p>
+          <p>{frontmatter.pubDate.toString().slice(4, 15)}</p>
         </div>
-        {
-          frontmatter.tags && (
-            <div class="flex gap-2 mt-2">
-              {frontmatter.tags.map((tag) => (
-                <a
-                  href={`/tags/${tag}`}
-                  class="px-1 py-1 text-sm rounded-lg text-secondary border border-secondary border-opacity-70 hover:bg-secondary hover:bg-opacity-10 transition-colors w-fit"
-                >
-                  #{tag}
-                </a>
-              ))}
-            </div>
-          )
-        }
       </div>
 
       <slot />
     </article>
-  </Container>
 </BaseLayout>

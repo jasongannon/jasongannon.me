@@ -1,21 +1,19 @@
 ---
-
-import WideContainer from "./ContainerWide.astro";
+import Container from "./Container.astro";
 import BigLink from "./BigLink.astro";
 import Logo from "./Logo.astro";
 import ThemeController from "./ThemeController.astro";
-import ThemeToggle from "./ThemeToggle.astro";
 
 const { title, url } = Astro.props;
 ---
 
 <header>
-  <WideContainer>
+  <Container>
     <div class="flex flex-wrap gap-y-2 justify-between">
       <div class="navbar">
         <div class="navbar-start">
           <div class="dropdown">
-            <div tabindex="-1" role="button" class="btn btn-ghost md:hidden">
+            <div tabindex="-1" role="button" class="btn btn-ghost md:hidden mr-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-5 w-5"
@@ -30,36 +28,24 @@ const { title, url } = Astro.props;
               >
             </div>
             <ul
-              class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              class="menu menu-sm dropdown-content mt-3 z-[1] py-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li><a aria-label="About" href="/about">About</a></li>
               <li><a aria-label="Resume" href="/resume">Resume</a></li>
-              <li><a aria-label="Blog" href="/blog">Blog</a></li>
-              <li><a aria-label="Tags" href="/tags">Tags</a></li>
+              <li><a aria-label="Blog" href="/blog">Articles</a></li>
             </ul>
           </div>
           <Logo />
         </div>
-        <div class="navbar-center hidden md:flex">
-          <BigLink
-            title="About"
-            url="/about"
-            current={Astro.url.pathname === "/about"}
-          />
+        <div class="navbar-center hidden md:flex mt-3" >
           <BigLink
             title="Resume"
             url="/resume"
             current={Astro.url.pathname === "/resume"}
           />
           <BigLink
-            title="Blog"
+            title="Articles"
             url="/blog"
             current={Astro.url.pathname === "/blog"}
-          />
-          <BigLink
-            title="Tags"
-            url="/tags"
-            current={Astro.url.pathname === "/tags"}
           />
         </div>
         <div class="navbar-end">
@@ -69,5 +55,5 @@ const { title, url } = Astro.props;
         </div>
       </div>
     </div>
-  </WideContainer>
+  </Container>
 </header>
