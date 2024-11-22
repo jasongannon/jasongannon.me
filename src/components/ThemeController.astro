@@ -9,11 +9,12 @@ const getInitialTheme = `
 `;
 ---
 
-<label class="swap swap-rotate btn hover:bg-primary hover:bg-opacity-10" for="theme-toggle">
+<label class="swap swap-rotate opacity-75 hover:opacity-100" for="theme-toggle">
   <span class="sr-only">Toggle theme</span>
   
   <input 
     id="theme-toggle"
+    class="theme-controller"
     type="checkbox" 
     data-toggle-theme="night,winter" 
     data-act-class="swap-active"

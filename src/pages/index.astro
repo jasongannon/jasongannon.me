@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Container from "@components/Container.astro";
+import Card from "@components/Card.astro";
 import H1 from "@components/Heading1.astro";
 import { getCollection } from "astro:content";
 import BlogPost from "@components/BlogPost.astro";
@@ -15,32 +16,25 @@ const eagerLoadCount = 3;
 <BaseLayout>
   <Container>
     <p>
- I'm a technical writer and software developer with 15 years of industry experience. During my career, I've had the good fortune to work
-      on some great projects with great teams, watch tools and languages
-      continue to evolve, and watch the explosion of RESTful APIs and
-      microservices architectures.</p><p> 
-      technical writing — that is my first and best skill and the one I've been
-      honing since university. I'm well versed in the tools and methodologies
-      needed to build great documentation. Topics like style and usage,
-      technical editing, working with SMEs, and information architecture are
-      right in my wheelhouse. I am a also a decent to very good front-end
-      developer and I can operate in a writer/developer role (I usually do). ###
-      How I Like to Work I'm a proponent of the [Docs as
-      Code](https://www.writethedocs.org/guide/docs-as-code/) approach. Plain
-      text, version control, and automation all make the technical writer's life
-      easier and less error prone. I, like many tech writers, love Markdown. I
-      like to work in a text editor and a terminal ([VS
-      Code](https://code.visualstudio.com/) with [Git](https://git-scm.com/) and
-      [Oh My Zsh](https://ohmyz.sh/) is a great setup). ### What I'm Up to
-      Lately Nowadays, I focus on the methods and tools that help build great
-      developer documentation: docs as code, developer portals, API references,
-      internal team sites. So I'm often trying out a new documentation tool or
-      researching other developer portals to see what the best-in-class sites
-      are offering to developers. I enjoy study and I love software and
-      hardware, so I'm happy to deep-dive into a new tool or topic needed for
-      work. And I love film, books, music, coffee, travel, history, philosophy.
-      (But, hey, who doesn't?)
+      I'm Jason, a technical writer and software developer living in the Indianapolis area. Welcome to my personal site. Here is where I write about my experiences and thoughts on technical writing, software development, and other topics.
     </p>
+    <Card>
+      <h3
+        class="mt-0 mb-3 text-2xl font-bold my-6"
+      >
+        Topics I'm interested in
+      </h3>
+      <ul class="my-3 ml-4 text-md list-disc">
+        <li class="mb-1">API docs and tools</li>
+        <li class="mb-1">Advanced docs-as-code workflows</li>
+        <li class="mb-1">Developer experience: integrating docs into dev workflows</li>
+        <li class="mb-1">Creating content models for developer portals</li>
+        <li class="mb-1">Writing for global teams and audiences</li>
+        <li class="mb-1">Advanced analytics for technical docs</li>
+        <li class="mb-1">Advanced diagramming tools and techniques</li>
+        <li class="mb-1">Managing legacy docs</li>
+      </ul>
+    </Card>
     <section class="flex-col justify-center items-center mt-20 mx-auto">
       <ul class="space-y-4 w-full" aria-label="Articles">
         {
@@ -49,7 +43,7 @@ const eagerLoadCount = 3;
               <a
                 href={`/posts/${post.slug}/`}
                 aria-label={`Read ${post.data.title}${post.data.description ? ` - ${post.data.description}` : ""}`}
-                class="relative group flex flex-nowrap p-4 rounded-lg border border-primaryborder-opacity-70  hover:border-opacity-10 hover:bg-primary hover:bg-opacity-10 transition-colors duration-300 ease-in-out"
+                class="relative group flex flex-nowrap p-4 rounded-lg shadow-md selection:border border-opacity-70  hover:border-opacity-10 hover:bg-primary hover:bg-opacity-10 transition-colors duration-300 ease-in-out"
               >
                 <div class="flex flex-col flex-1 truncate pr-8">
                   <div class="font-semibold text-lg">{post.data.title}</div>
