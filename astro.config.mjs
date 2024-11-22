@@ -5,25 +5,32 @@ import sitemap from "@astrojs/sitemap";
 import mdx from '@astrojs/mdx';
 import icon from "astro-icon";
 
-// https://astro.build/config
 export default defineConfig({
   site: 'https://jasongannon.me',
-  integrations: [tailwind(), sitemap(), icon(), mdx({
-    // Ensure MDX uses the same configuration
-    syntaxHighlight: 'prism',
-    gfm: true,
-    wrap: false
-  })],
-  markdown: {
-    rehypePlugins: [[rehypeExternalLinks, {
-      content: {
-        type: 'text',
-        value: ' 🔗'
-      }
-    }]],
-    syntaxHighlight: 'prism',
-    // Add this wrap configuration
-    gfm: true,
-    wrap: false    
-  }
+  integrations: [
+    tailwind(), 
+    sitemap(), 
+    icon(), 
+    mdx({
+      syntaxHighlight: 'prism',
+      gfm: true,
+      wrap: false,
+      // Add these options:
+      layout: false,
+      layoutProps: {},
+      // Optimize MDX processing
+      optimize: true,
+      remarkPlugins: [],
+      rehypePlugins: [
+        [rehypeExternalLinks, {
+          content: {
+            type: 'text',
+            value: ' 🔗'
+          }
+        }]
+      ]
+    })
+  ],
+  // Remove or comment out the markdown config since you're only using MDX
+  // markdown: { ... }
 });

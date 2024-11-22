@@ -13,7 +13,11 @@ const { title, url } = Astro.props;
       <div class="navbar">
         <div class="navbar-start">
           <div class="dropdown">
-            <div tabindex="-1" role="button" class="btn btn-ghost md:hidden mr-2">
+            <div
+              tabindex="-1"
+              role="button"
+              class="btn btn-ghost md:hidden mr-2"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-5 w-5"
@@ -30,28 +34,26 @@ const { title, url } = Astro.props;
             <ul
               class="menu menu-sm dropdown-content mt-3 z-[1] py-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li><a aria-label="Resume" href="/resume">Resume</a></li>
               <li><a aria-label="Blog" href="/blog">Articles</a></li>
+              <li><a aria-label="Resume" href="/resume">Resume</a></li>
             </ul>
           </div>
           <Logo />
         </div>
-        <div class="navbar-center hidden md:flex mt-3" >
-          <BigLink
-            title="Resume"
-            url="/resume"
-            current={Astro.url.pathname === "/resume"}
-          />
+        <div class="navbar-center hidden md:flex mt-3">
           <BigLink
             title="Articles"
             url="/blog"
             current={Astro.url.pathname === "/blog"}
           />
+          <BigLink
+            title="Resume"
+            url="/resume"
+            current={Astro.url.pathname === "/resume"}
+          />
         </div>
         <div class="navbar-end">
-
-     
-          <ThemeController aria-label="Theme Controller"/>
+          <ThemeController aria-label="Theme Controller" />
         </div>
       </div>
     </div>

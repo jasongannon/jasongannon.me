@@ -13,36 +13,33 @@ const eagerLoadCount = 3;
 ---
 
 <BaseLayout>
-
   <Container>
-
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dapibus
-      molestie nunc sit amet tempus. Donec quis nibh dui. Suspendisse venenatis
-      at lacus vitae vehicula. Integer orci nulla, malesuada nec ante ut, porta
-      tristique urna. Duis semper accumsan hendrerit. Duis molestie velit ut
-      mauris lacinia, vitae fermentum nunc placerat. Mauris at consequat nisl.
-      Pellentesque arcu orci, imperdiet eget lacinia id, malesuada in leo.
-      Vestibulum euismod dolor ipsum, et tincidunt neque volutpat non. Praesent
-      faucibus sapien et velit condimentum, ac venenatis nunc fringilla. Aenean
-      aliquet mauris sapien, sed viverra ex faucibus vel. Nunc suscipit sagittis
-      nulla, nec aliquam lorem convallis in. Cras in massa eget libero malesuada
-      dictum a vitae ligula. Pellentesque sit amet dui pharetra, sodales ligula
-      ut, suscipit nisl. Morbi cursus luctus lobortis. Vivamus purus dolor,
-      pretium vel tempor in, rutrum ut nisl. Aenean commodo consectetur porta.
-      Morbi et nisi dui. Nulla cursus nisi sit amet est ultrices blandit. Orci
-      varius natoque penatibus et magnis dis parturient montes, nascetur
-      ridiculus mus. Suspendisse tempus sodales lacus, eu consectetur turpis
-      dictum quis. In hac habitasse platea dictumst. Nulla vitae congue nisl.
-      Morbi congue dictum ultrices. Integer eget libero ac augue venenatis
-      ultricies. Etiam fermentum lectus et magna scelerisque, et pharetra massa
-      ornare. Vivamus rhoncus enim orci, at aliquam orci porta a. Sed in nulla
-      non est hendrerit pellentesque. Nullam gravida elit ac gravida fermentum.
-      Donec tincidunt est sed aliquam volutpat. Interdum et malesuada fames ac
-      ante ipsum primis in faucibus. Vivamus feugiat felis quis sapien suscipit,
-      vel tincidunt odio porttitor. Vestibulum blandit purus justo, vel
-      sollicitudin mi pretium non. Ut in justo consectetur, posuere lectus non,
-      auctor turpis. Nulla lacinia luctus neque in pharetra.
+ I'm a technical writer and software developer with 15 years of industry experience. During my career, I've had the good fortune to work
+      on some great projects with great teams, watch tools and languages
+      continue to evolve, and watch the explosion of RESTful APIs and
+      microservices architectures.</p><p> 
+      technical writing — that is my first and best skill and the one I've been
+      honing since university. I'm well versed in the tools and methodologies
+      needed to build great documentation. Topics like style and usage,
+      technical editing, working with SMEs, and information architecture are
+      right in my wheelhouse. I am a also a decent to very good front-end
+      developer and I can operate in a writer/developer role (I usually do). ###
+      How I Like to Work I'm a proponent of the [Docs as
+      Code](https://www.writethedocs.org/guide/docs-as-code/) approach. Plain
+      text, version control, and automation all make the technical writer's life
+      easier and less error prone. I, like many tech writers, love Markdown. I
+      like to work in a text editor and a terminal ([VS
+      Code](https://code.visualstudio.com/) with [Git](https://git-scm.com/) and
+      [Oh My Zsh](https://ohmyz.sh/) is a great setup). ### What I'm Up to
+      Lately Nowadays, I focus on the methods and tools that help build great
+      developer documentation: docs as code, developer portals, API references,
+      internal team sites. So I'm often trying out a new documentation tool or
+      researching other developer portals to see what the best-in-class sites
+      are offering to developers. I enjoy study and I love software and
+      hardware, so I'm happy to deep-dive into a new tool or topic needed for
+      work. And I love film, books, music, coffee, travel, history, philosophy.
+      (But, hey, who doesn't?)
     </p>
     <section class="flex-col justify-center items-center mt-20 mx-auto">
       <ul class="space-y-4 w-full" aria-label="Articles">
@@ -51,26 +48,31 @@ const eagerLoadCount = 3;
             <li>
               <a
                 href={`/posts/${post.slug}/`}
-                aria-label={`Read ${post.data.title}${post.data.description ? ` - ${post.data.description}` : ''}`}
-                class="relative group flex flex-nowrap p-4 rounded-lg text-secondary border border-secondary border-opacity-70  hover:border hover:border-secondary hover:bg-secondary hover:bg-opacity-10 transition-colors duration-300 ease-in-out"
+                aria-label={`Read ${post.data.title}${post.data.description ? ` - ${post.data.description}` : ""}`}
+                class="relative group flex flex-nowrap p-4 rounded-lg border border-primaryborder-opacity-70  hover:border-opacity-10 hover:bg-primary hover:bg-opacity-10 transition-colors duration-300 ease-in-out"
               >
                 <div class="flex flex-col flex-1 truncate pr-8">
-                  <div class="font-semibold text-lg">
-                    {post.data.title}
-                  </div>
+                  <div class="font-semibold text-lg">{post.data.title}</div>
                   {post.data.description && (
-                    <div class="text-sm">
-                      {post.data.description}
-                    </div>
+                    <div class="text-sm">{post.data.description}</div>
                   )}
                 </div>
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   class="absolute top-1/2 right-4 -translate-y-1/2 w-5 h-5 stroke-2 fill-none stroke-current"
                 >
-                  <line x1="5" y1="12" x2="19" y2="12" class="translate-x-3 group-hover:translate-x-0 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out" />
-                  <polyline points="12 5 19 12 12 19" class="-translate-x-1 group-hover:translate-x-0 transition-transform duration-300 ease-in-out" />
+                  <line
+                    x1="5"
+                    y1="12"
+                    x2="19"
+                    y2="12"
+                    class="translate-x-3 group-hover:translate-x-0 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out"
+                  />
+                  <polyline
+                    points="12 5 19 12 12 19"
+                    class="-translate-x-1 group-hover:translate-x-0 transition-transform duration-300 ease-in-out"
+                  />
                 </svg>
               </a>
             </li>
