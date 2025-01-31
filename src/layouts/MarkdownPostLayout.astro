@@ -1,38 +1,29 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
-import Container from "@components/Container.astro";
-import { Image } from "astro:assets";
-import { Icon } from "astro-icon/components";
+
 import "@styles/copyCode.css";
+import H1 from "@components/Heading1.astro";
 const { frontmatter } = Astro.props;
+const pageTitle = frontmatter.title;
+
 ---
 
 <script>
   import copyCode from "@utils/CopyCode.mjs";
   copyCode();
 </script>
-<BaseLayout class="prose" pageTitle={frontmatter.title}>
-  <Container>
-    <p class="flex m-0">
-      {frontmatter.description}
-    </p>
-    <p class="flex m-0">
-      <Icon name="clock" class="ml-0 mr-1 mt-1.5" />
-      {frontmatter.pubDate.toString().slice(4, 15)}
-    </p>
-    <span>By: <a href="/about/">{frontmatter.author}</a></span>
+<BaseLayout pageTitle={frontmatter.title}>
 
+    <article
+      class="prose prose-lg dark:prose-invert prose-a:text-primary max-w-none"
+    >
+      <div class="not-prose mb-8">
+        <H1 pageTitle={pageTitle}/>
+        <div class="flex gap-4 text-sm">
+          <p>{frontmatter.pubDate.toString().slice(4, 15)}</p>
+        </div>
+      </div>
 
-  <div class="flex flex-wrap">
-    {
-      frontmatter.tags.map((tag: string) => (
-        <p class="m-1 rounded-lg border-inherit border-dotted py-1 px-2  hover:bg-base-300 ">
-          <a href={`/tags/${tag}`}>{tag}</a>
-        </p>
-      ))
-    }
-  </div>
-  <Image src={frontmatter.cover} width={1028} alt={frontmatter.coverAlt} loading="eager"/>
-  <slot />
-</Container>
+      <slot />
+    </article>
 </BaseLayout>

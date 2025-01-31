@@ -1,37 +1,42 @@
 let copyButtonLabel = "copy   ";
-  let codeBlocks = Array.from(document.querySelectorAll("pre"));
+let codeBlocks = Array.from(document.querySelectorAll("pre"));
 
-  for (let codeBlock of codeBlocks) {
-    let wrapper = document.createElement("div");
-    wrapper.style.position = "relative";
+for (let codeBlock of codeBlocks) {
+  let wrapper = document.createElement("div");
+  wrapper.style.position = "relative";
 
-    let copyButton = document.createElement("button");
-    copyButton.className = "copy-code";
-    copyButton.innerHTML = copyButtonLabel;
+  let copyButton = document.createElement("button");
+  copyButton.className = "copy-code";
+  copyButton.innerHTML = copyButtonLabel;
 
-    codeBlock.setAttribute("tabindex", "0");
-    codeBlock.appendChild(copyButton);
-    // wrap codebock with relative parent element
-    codeBlock.parentNode.insertBefore(wrapper, codeBlock);
-    wrapper.appendChild(codeBlock);
+  copyButton.setAttribute("aria-label", "Copy code to clipboard");
 
-    copyButton.addEventListener("click", async () => {
-      await copyCode(codeBlock, copyButton);
-    });
-  }
+  codeBlock.appendChild(copyButton);
 
-  async function copyCode(block, button) {
-    let code = block.querySelector("code");
-    let text = code.innerText;
+  codeBlock.parentNode.insertBefore(wrapper, codeBlock);
+  wrapper.appendChild(codeBlock);
 
-    await navigator.clipboard.writeText(text);
+  copyButton.addEventListener("click", async () => {
+    await copyCode(codeBlock, copyButton);
+  });
+}
 
-    // visual feedback that task is completed
-    button.innerText = "copied!";
+async function copyCode(block, button) {
+  let code = block.querySelector("code");
+  let text = code.innerText;
 
-    setTimeout(() => {
-      button.innerText = copyButtonLabel;
-    }, 700);
-  }
+  await navigator.clipboard.writeText(text);
 
-  export default copyCode;
+  // visual feedback that task is completed
+  button.innerText = "copied!";
+  // Add aria-label update for screen readers
+  button.setAttribute("aria-label", "Code copied to clipboard");
+
+  setTimeout(() => {
+    button.innerText = copyButtonLabel;
+    // Reset aria-label
+    button.setAttribute("aria-label", "Copy code to clipboard");
+  }, 700);
+}
+
+export default copyCode;

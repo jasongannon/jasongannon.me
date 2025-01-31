@@ -5,16 +5,28 @@ import sitemap from "@astrojs/sitemap";
 import mdx from '@astrojs/mdx';
 import icon from "astro-icon";
 
-// https://astro.build/config
 export default defineConfig({
-  site: 'https://gannon.ink',
-  integrations: [tailwind(), sitemap(), icon(), mdx()],
-  markdown: {
-    rehypePlugins: [[rehypeExternalLinks, {
-      content: {
-        type: 'text',
-        value: ' 🔗'
-      }
-    }]]
-  }
+  site: 'https://jasongannon.me',
+  integrations: [
+    tailwind(), 
+    sitemap(), 
+    icon(), 
+    mdx({
+      syntaxHighlight: 'prism',
+      gfm: true,
+      wrap: false,
+      layout: false,
+      layoutProps: {},
+      optimize: true,
+      remarkPlugins: [],
+      rehypePlugins: [
+        [rehypeExternalLinks, {
+          content: {
+            type: 'text',
+            value: ' 🔗'
+          }
+        }]
+      ]
+    })
+  ],
 });

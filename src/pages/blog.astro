@@ -3,10 +3,10 @@ import Container from "@components/Container.astro";
 import { getCollection } from "astro:content";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import BlogPost from "@components/BlogPost.astro";
-import { Image } from "astro:assets";
+import H1 from "@components/Heading1.astro";
 const { frontmatter } = Astro.props;
 const allPosts = await getCollection("posts");
-const pageTitle = "My Astro Learning Blog";
+const pageTitle = "All Articles";
 
 const eagerLoadCount = 3;
 
@@ -14,22 +14,38 @@ const eagerLoadCount = 3;
 
 <BaseLayout pageTitle={pageTitle}>
   <Container>
-    <section class="flex-col justify-center items-center py-8 mx-auto">
-      <h1 class="mb-4 mx-0 text-4xl">My Astro Learning Blog</h1>
-      <h2 class="mb-4 mx-0 text-2xl">Subtitle</h2>
-      <p>This is where I will post about my journey learning Astro.</p>
-      <ul>
+    <section class="flex-col justify-center items-center mx-auto max-w-screen-lg">
+      <H1  pageTitle={pageTitle}/>
+
+      <ul class="space-y-4 w-full" aria-label="Articles">
         {
           allPosts.map((post, index) => (
-            <>
-              <Image
-                src={post.data.cover}
-                width={1024}
-                alt={post.data.coverAlt}
-                loading={index < eagerLoadCount ? "eager" : "lazy"}
-              />
-              <BlogPost url={`/posts/${post.slug}/`} title={post.data.title} />
-            </>
+            <li>
+              <a
+                href={`/posts/${post.slug}/`}
+                aria-label={`Read ${post.data.title}${post.data.description ? ` - ${post.data.description}` : ''}`}
+                class="relative group flex flex-nowrap p-4 rounded-lg shadow-md selection:border border-opacity-70  hover:border-opacity-10 hover:bg-primary hover:bg-opacity-10 transition-colors duration-300 ease-in-out"
+              >
+                <div class="flex flex-col flex-1 truncate pr-8">
+                  <div class="font-semibold text-lg">
+                    {post.data.title}
+                  </div>
+                  {post.data.description && (
+                    <div class="text-sm">
+                      {post.data.description}
+                    </div>
+                  )}
+                </div>
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  viewBox="0 0 24 24"
+                  class="absolute top-1/2 right-4 -translate-y-1/2 w-5 h-5 stroke-2 fill-none stroke-current"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12" class="translate-x-3 group-hover:translate-x-0 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out" />
+                  <polyline points="12 5 19 12 12 19" class="-translate-x-1 group-hover:translate-x-0 transition-transform duration-300 ease-in-out" />
+                </svg>
+              </a>
+            </li>
           ))
         }
       </ul>

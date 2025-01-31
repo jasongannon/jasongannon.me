@@ -2,8 +2,9 @@
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import Head from "@components/Head.astro";
+import Container from "@components/Container.astro";
 import "../styles/global.css";
-const { pageTitle } = Astro.props;
+
 
 ---
 
@@ -17,7 +18,9 @@ const { pageTitle } = Astro.props;
     <div class="flex flex-col h-screen justify-between">
     <Header />
     <main>
+      <Container>
       <slot />
+      </Container>
     </main>
     <Footer />
     </div>

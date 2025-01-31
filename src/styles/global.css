@@ -24,3 +24,10 @@ main {
 footer {
   @apply py-5 text-sm;
 }
+
+pre {
+  /* Remove any tabindex styling */
+  outline: none !important;
+  /* Ensure it's not focusable */
+  pointer-events: auto;
+}

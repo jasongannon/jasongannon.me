@@ -1,0 +1,85 @@
+---
+title: My Fourth Blog Post
+pubDate: 2019-07-08
+description: "This post will show up on its own!"
+---
+
+This post should show up with my other blog posts, because `Astro.glob()` is returning a list of all my posts in order to create my list.
+
+
+```js
+import { defineConfig } from 'astro/config';
+import mdx from '@astrojs/mdx';
+
+export default defineConfig({
+  markdown: {
+    syntaxHighlight: 'prism',
+    remarkPlugins: [remarkPlugin1],
+    gfm: true,
+  },
+  integrations: [
+    mdx({
+      // `syntaxHighlight` inherited from Markdown
+
+      // Markdown `remarkPlugins` ignored,
+      // only `remarkPlugin2` applied.
+      remarkPlugins: [remarkPlugin2],
+      // `gfm` overridden to `false`
+      gfm: false,
+    })
+  ]
+});
+
+export const title = 'My first MDX post'
+
+# {title}
+```
+
+### Using Frontmatter Variables in MDX
+
+The Astro MDX integration includes support for using frontmatter in MDX by default. Add frontmatter properties just as you would in Markdown files, and these variables are accessible to use in the template, in its [`layout` component](#frontmatter-layout), and as named properties when [importing the file](#importing-markdown) somewhere else.
+
+```mdx
+---
+layout: '../../layouts/BlogPostLayout.astro'
+title: 'My first MDX post'
+---
+
+# {frontmatter.title}
+```
+
+### Using Components in MDX
+
+After installing the MDX integration, you can import and use both [Astro components](/en/basics/astro-components/#component-props) and [UI framework components](/en/guides/framework-components/#using-framework-components) in MDX (`.mdx`) files just as you would use them in any other Astro component.
+
+Don't forget to include a `client:directive` on your UI framework components, if necessary!
+
+See more examples of using import and export statements in the [MDX docs](https://mdxjs.com/docs/what-is-mdx/#esm).
+
+```mdx
+---
+layout: ../layouts/BaseLayout.astro
+title: About me
+---
+import Button from '../components/Button.astro';
+import ReactCounter from '../components/ReactCounter.jsx';
+
+I live on **Mars** but feel free to <Button title="Contact me" />.
+
+Here is my counter component, working in MDX:
+
+<ReactCounter client:load />
+```
+
+### Assigning Custom Components to HTML elements
+
+With MDX, you can map Markdown syntax to custom components instead of their standard HTML elements. This allows you to write in standard Markdown syntax, but apply special component styling to selected elements.
+
+Import your custom component into your `.mdx` file, then export a `components` object that maps the standard HTML element to your custom component:
+
+```mdx
+import Blockquote from '../components/Blockquote.astro';
+export const components = {blockquote: Blockquote}
+
+> This quote will be a custom Blockquote
+```
