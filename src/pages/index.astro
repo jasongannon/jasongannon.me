@@ -10,7 +10,7 @@ const pageTitle = "Home";
 const { frontmatter } = Astro.props;
 const allPosts = await getCollection("posts");
 const recentPosts = allPosts
-  .sort((a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 5);
 
 const eagerLoadCount = 3;
