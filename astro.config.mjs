@@ -5,8 +5,11 @@ import sitemap from "@astrojs/sitemap";
 import mdx from '@astrojs/mdx';
 import icon from "astro-icon";
 
+import cloudflare from '@astrojs/cloudflare';
+
 export default defineConfig({
   site: 'https://jasongannon.me',
+
   integrations: [
     tailwind(), 
     sitemap(), 
@@ -29,4 +32,6 @@ export default defineConfig({
       ]
     })
   ],
+
+  adapter: cloudflare(),
 });
