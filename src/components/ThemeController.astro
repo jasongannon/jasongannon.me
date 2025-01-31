@@ -1,11 +1,9 @@
 ---
-
+// Remove the backticks and store as a string to be executed client-side
 const getInitialTheme = `
-  (() => {
-    const storedTheme = localStorage.getItem("theme");
-    if (storedTheme) return storedTheme;
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? "night" : "winter";
-  })()
+  const storedTheme = localStorage.getItem("theme");
+  if (storedTheme) return storedTheme;
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? "night" : "winter";
 `;
 ---
 
@@ -18,7 +16,6 @@ const getInitialTheme = `
     type="checkbox" 
     data-toggle-theme="night,winter" 
     data-act-class="swap-active"
-    checked={getInitialTheme === "night"}
   />
 
   <!-- sun icon -->
@@ -40,9 +37,15 @@ const getInitialTheme = `
   </svg>
 </label>
 
-<script>
+<script define:vars={{ getInitialTheme }}>
+  // Execute the initial theme logic
+  const initialTheme = eval(`(() => { ${getInitialTheme} })()`);
   // Update checkbox state when theme changes
-  const checkbox = document.querySelector('[data-toggle-theme]') as HTMLInputElement;
+  const checkbox = document.querySelector('[data-toggle-theme]');
+  if (checkbox instanceof HTMLInputElement) {
+    checkbox.checked = initialTheme === 'night';
+  }
+  
   const updateCheckbox = () => {
     const currentTheme = document.documentElement.getAttribute('data-theme');
     checkbox.checked = currentTheme === 'night';
@@ -50,7 +53,4 @@ const getInitialTheme = `
 
   // Listen for theme changes
   window.addEventListener('theme-change', updateCheckbox);
-  
-  // Set initial state
-  updateCheckbox();
 </script>
