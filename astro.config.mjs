@@ -15,10 +15,8 @@ export default defineConfig({
       syntaxHighlight: 'prism',
       gfm: true,
       wrap: false,
-      // Add these options:
       layout: false,
       layoutProps: {},
-      // Optimize MDX processing
       optimize: true,
       remarkPlugins: [],
       rehypePlugins: [
@@ -31,6 +29,4 @@ export default defineConfig({
       ]
     })
   ],
-  // Remove or comment out the markdown config since you're only using MDX
-  // markdown: { ... }
 });
